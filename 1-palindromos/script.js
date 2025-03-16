@@ -5,9 +5,9 @@ const convertirReverso =(palabra)=>{
     return palabraFormateada.toLowerCase().split('').reverse().join('');
 }
 const esPalindromo =(palabra)=>{
-    const palabraInvertida= convertirReverso(palabra);
+    const palabraAlReves= convertirReverso(palabra);
     const palabraOriginal= palabra.replaceAll(' ', '');
-    return palabraOriginal!==palabraInvertida?false:true;
+    return palabraOriginal!==palabraAlReves?false:true;
 }
 
 formulario.addEventListener('submit', function (e) {
