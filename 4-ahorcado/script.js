@@ -12,7 +12,7 @@ const intento=()=>{
         if(arregloPalabra.includes(letra)){
             palabraUsuario.push(letra);
         }else{
-            console.log("La letra no esta en la palabra")
+            document.body.innerHTML += `La letra ${letra} no está en la palabra <br>`;
             contador++
         }
         if(palabraUsuario.length+1 === arregloPalabra.length){
