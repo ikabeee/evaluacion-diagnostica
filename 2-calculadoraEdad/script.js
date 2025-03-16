@@ -1,13 +1,13 @@
 const formulario = document.getElementById('formulario');
 
-let fechaUsuario = {
+var fechaUsuario = {
     anio: '',
     mes: '',
     dia: '',
     hora: ''
 }
 
-let fechaActual = {
+var fechaActual = {
     anio: new Date().getFullYear(),
     mes: new Date().getMonth(),
     dia: new Date().getDate(),
@@ -25,11 +25,22 @@ const fechaNacimiento =()=>{
 console.log(fechaActual)
 const calcularEdad =()=>{
    const {mes, hora, dia, anio} = fechaNacimiento();
-    let edad = fechaActual.anio - anio;
-    console.log(edad)
-    if (mes > fechaActual.mes){
-        edad--;
+    let edadAnio = fechaActual.anio - anio;
+    let edadMes = fechaActual.mes - mes;
+    let edadDia = fechaActual.dia - dia;
+    let edadHora = fechaActual.hora - hora;
+    if(edadAnio<fechaActual.anio){
+        edadAnio--;
+    }
+    if(edadMes<fechaActual.mes){
+        edadMes+=12;
+    }
+    if(edadDia<fechaActual.dia){
+        edadDia+=30;
+    }
+    if(edadHora<fechaActual.hora){
+        edadHora+=24;
     }
 
-    document.body.innerHTML += `<h2>Tu edad es: ${edad}</h2>`;
+    document.body.innerHTML += `<h2>Tu edad es años: ${edadAnio}, meses: ${edadMes}, dias: ${edadDia}, semanas:${parseInt(edadDia/7)}, hora: ${edadHora}</h2>`;
 }
